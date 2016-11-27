@@ -79,15 +79,14 @@ object Form1: TForm1
     TabOrder = 1
     Text = 'Hello, world!'
   end
-  object SendButton: TButton
+  object ButtonSend: TButton
     Left = 650
     Top = 177
     Width = 75
     Height = 25
+    Action = SendAction
     Anchors = [akTop, akRight]
-    Caption = 'SendButton'
     TabOrder = 6
-    OnClick = SendButtonClick
   end
   object EditUserName: TEdit
     Left = 160
@@ -130,6 +129,18 @@ object Form1: TForm1
     Height = 21
     Anchors = [akLeft, akTop, akRight]
     TabOrder = 0
+    Text = 
+      'https://hooks.slack.com/services/T02AFTBPW/B35KBGVU6/euPm49soMVp' +
+      'oQYr1ZCvIIhGs'
     TextHint = '(https://hooks.slack.com/services/...)'
+  end
+  object ActionList1: TActionList
+    Left = 512
+    Top = 168
+    object SendAction: TAction
+      Caption = 'Send'
+      OnExecute = SendActionExecute
+      OnUpdate = SendActionUpdate
+    end
   end
 end

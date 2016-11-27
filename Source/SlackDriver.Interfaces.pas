@@ -33,8 +33,12 @@ type
     function ToJSON: TJSONObject;
   end;
 
+  TOnErrorProc = TProc<IMessage, Integer, string, string>;
+  TOnSuccessProc = TProc<IMessage>;
+
   IExecutor = interface
-    procedure Send(AMessage: IMessage; const AOnSuccess: TProc = nil; const AOnError: TProc = nil);
+    procedure Send(AMessage: IMessage; const AOnSuccess: TOnSuccessProc = nil;
+      const AOnError: TOnErrorProc = nil);
   end;
 
 implementation

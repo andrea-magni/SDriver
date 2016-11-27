@@ -8,12 +8,13 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, System.Actions,
+  Vcl.ActnList;
 
 type
   TForm1 = class(TForm)
     EditMessage: TEdit;
-    SendButton: TButton;
+    ButtonSend: TButton;
     Label1: TLabel;
     EditUserName: TEdit;
     Label2: TLabel;
@@ -25,7 +26,10 @@ type
     Label5: TLabel;
     EditWebHookURL: TEdit;
     Label6: TLabel;
-    procedure SendButtonClick(Sender: TObject);
+    ActionList1: TActionList;
+    SendAction: TAction;
+    procedure SendActionExecute(Sender: TObject);
+    procedure SendActionUpdate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -40,17 +44,19 @@ implementation
 {$R *.dfm}
 
 uses
-  SlackDriver.Message
-, SlackDriver.Interfaces
-, SlackDriver.Executor
+  System.Diagnostics
+, SlackDriver.Message, SlackDriver.Interfaces, SlackDriver.Executor
 ;
 
-procedure TForm1.SendButtonClick(Sender: TObject);
+procedure TForm1.SendActionExecute(Sender: TObject);
 var
   LExecutor: IExecutor;
   LMessage: IMessage;
+  LStopWatch: TStopWatch;
 begin
-  LMessage := TMessage.Create(EditMessage.Text);
+  LStopWatch := TStopWatch.StartNew;
+
+  LMessage := TMessage.Create(EditMessage.Text + ' [' + TimeToStr(Now) + ']');
   LMessage.UserName := EditUserName.Text;
   LMessage.Icon_URL := EditIcon_URL.Text;
   LMessage.Icon_Emoji := EditIcon_Emoji.Text;
@@ -60,15 +66,22 @@ begin
 
   LExecutor.Send(
        LMessage
-     , procedure
+     , procedure(AMessage: IMessage)
        begin
-         ShowMessage('OK, sent!');
+         LStopWatch.Stop;
+         ShowMessage(Format('OK, sent (in %d ms)!', [LStopWatch.Elapsed.Milliseconds]));
        end
-     , procedure
+     , procedure(AMessage: IMessage; AStatusCode: Integer; AStatusText, AError: string)
        begin
-         ShowMessage('Failed!');
+         LStopWatch.Stop;
+         ShowMessage(Format('Failed: [%d - %s] %s', [AStatusCode, AStatusText, AError]));
        end
     );
+end;
+
+procedure TForm1.SendActionUpdate(Sender: TObject);
+begin
+  SendAction.Enabled := (EditWebHookURL.Text <> '') and (EditMessage.Text <> '');
 end;
 
 end.
