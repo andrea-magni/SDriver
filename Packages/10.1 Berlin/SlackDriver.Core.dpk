@@ -41,6 +41,8 @@ contains
   SlackDriver.Message in '..\..\Source\SlackDriver.Message.pas',
   SlackDriver.Interfaces in '..\..\Source\SlackDriver.Interfaces.pas',
   SlackDriver.Executor in '..\..\Source\SlackDriver.Executor.pas',
-  SlackDriver.Utils in '..\..\Source\SlackDriver.Utils.pas';
+  SlackDriver.Utils in '..\..\Source\SlackDriver.Utils.pas',
+  SlackDriver.BufferedExecutor in '..\..\Source\SlackDriver.BufferedExecutor.pas',
+  SlackDriver.IncomingWebHook in '..\..\Source\SlackDriver.IncomingWebHook.pas';
 
 end.

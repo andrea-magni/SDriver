@@ -129,9 +129,6 @@ object Form1: TForm1
     Height = 21
     Anchors = [akLeft, akTop, akRight]
     TabOrder = 0
-    Text = 
-      'https://hooks.slack.com/services/T02AFTBPW/B35KBGVU6/euPm49soMVp' +
-      'oQYr1ZCvIIhGs'
     TextHint = '(https://hooks.slack.com/services/...)'
   end
   object ActionList1: TActionList

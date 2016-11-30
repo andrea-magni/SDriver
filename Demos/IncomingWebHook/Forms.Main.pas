@@ -45,13 +45,14 @@ implementation
 
 uses
   System.Diagnostics
-, SlackDriver.Message, SlackDriver.Interfaces, SlackDriver.Executor
+, SlackDriver.Message, SlackDriver.Interfaces, SlackDriver.IncomingWebHook
 ;
 
 procedure TForm1.SendActionExecute(Sender: TObject);
 var
-  LExecutor: IExecutor;
+  LWebHook: IMessageBuffer;
   LMessage: IMessage;
+
   LStopWatch: TStopWatch;
 begin
   LStopWatch := TStopWatch.StartNew;
@@ -62,21 +63,9 @@ begin
   LMessage.Icon_Emoji := EditIcon_Emoji.Text;
   LMessage.Channel := EditChannel.Text;
 
-  LExecutor := TIncomingWebHook.Create(EditWebHookURL.Text);
-
-  LExecutor.Send(
-       LMessage
-     , procedure(AMessage: IMessage)
-       begin
-         LStopWatch.Stop;
-         ShowMessage(Format('OK, sent (in %d ms)!', [LStopWatch.Elapsed.Milliseconds]));
-       end
-     , procedure(AMessage: IMessage; AStatusCode: Integer; AStatusText, AError: string)
-       begin
-         LStopWatch.Stop;
-         ShowMessage(Format('Failed: [%d - %s] %s', [AStatusCode, AStatusText, AError]));
-       end
-    );
+  LWebHook := TIncomingWebHook.Create(EditWebHookURL.Text, False);
+  LWebHook.Push(LMessage);
+  LWebHook.Flush;
 end;
 
 procedure TForm1.SendActionUpdate(Sender: TObject);
