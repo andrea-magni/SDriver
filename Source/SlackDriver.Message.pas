@@ -7,8 +7,8 @@ unit SlackDriver.Message;
 interface
 
 uses
-  SlackDriver.Interfaces
-, System.JSON
+  System.JSON
+, SlackDriver.Interfaces, SlackDriver.Attachment
 ;
 
 type
@@ -19,6 +19,7 @@ type
     FIcon_URL: string;
     FIcon_Emoji: string;
     FChannel: string;
+    FAttachments: TArray<IAttachment>;
   public
     // IMessage
     function GetText: string;
@@ -31,6 +32,8 @@ type
     procedure SetIcon_URL(const AIcon_URL: string);
     procedure SetIcon_Emoji(const AIcon_Emoji: string);
     procedure SetChannel(const AChannel: string);
+    function GetAttachments: TArray<IAttachment>;
+    function AddAttachment: IAttachment;
 
     function ToJSON: TJSONObject;
 
@@ -41,10 +44,22 @@ implementation
 
 { TMessage }
 
+function TMessage.AddAttachment: IAttachment;
+begin
+  Result := TAttachment.Create;
+  FAttachments := FAttachments + [Result];
+end;
+
 constructor TMessage.Create(const AText: string);
 begin
   inherited Create;
   SetText(AText);
+  FAttachments := [];
+end;
+
+function TMessage.GetAttachments: TArray<IAttachment>;
+begin
+  Result := FAttachments;
 end;
 
 function TMessage.GetChannel: string;
@@ -98,6 +113,9 @@ begin
 end;
 
 function TMessage.ToJSON: TJSONObject;
+var
+  LAttachment: IAttachment;
+  LAttachments: TJSONArray;
 begin
   Result := TJSONObject.Create;
   try
@@ -106,6 +124,18 @@ begin
     Result.AddPair('icon_url', TJSONString.Create(FIcon_URL));
     Result.AddPair('icon_emoji', TJSONString.Create(FIcon_Emoji));
     Result.AddPair('channel', TJSONString.Create(FChannel));
+    if Length(FAttachments) > 0 then
+    begin
+      LAttachments := TJSONArray.Create;
+      try
+        for LAttachment in FAttachments do
+          LAttachments.Add(LAttachment.ToJSON);
+      except
+        LAttachments.Free;
+        raise;
+      end;
+      Result.AddPair('attachments', LAttachments);
+    end;
   except
     Result.Free;
     raise;

@@ -43,6 +43,8 @@ contains
   SlackDriver.Executor in '..\..\Source\SlackDriver.Executor.pas',
   SlackDriver.Utils in '..\..\Source\SlackDriver.Utils.pas',
   SlackDriver.BufferedExecutor in '..\..\Source\SlackDriver.BufferedExecutor.pas',
-  SlackDriver.IncomingWebHook in '..\..\Source\SlackDriver.IncomingWebHook.pas';
+  SlackDriver.IncomingWebHook in '..\..\Source\SlackDriver.IncomingWebHook.pas',
+  SlackDriver.Attachment in '..\..\Source\SlackDriver.Attachment.pas',
+  SlackDriver.Fields in '..\..\Source\SlackDriver.Fields.pas';
 
 end.
