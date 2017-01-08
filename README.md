@@ -3,6 +3,7 @@
 A [Delphi](https://www.embarcadero.com/products/delphi) wrapper for [Slack](https://slack.com/) API
 
 ### Features
+* Compatible with FireMonkey (FMX), VCL, non visual applications
 * Support for [Incoming WebHooks](https://api.slack.com/incoming-webhooks)
 * Support for [Message Attachments](https://api.slack.com/docs/message-attachments)
 * Written in Delphi 10.1 Berlin (should be compatible with Seattle and XE8, but not tested yet)
