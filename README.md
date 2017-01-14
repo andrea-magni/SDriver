@@ -1,5 +1,5 @@
-![SlackDriver logo](https://www.andreamagni.eu/images/slackdriver.png)
-# SlackDriver
+![SDriver logo](https://www.andreamagni.eu/images/sdriver.png)
+# SDriver
 A [Delphi](https://www.embarcadero.com/products/delphi) wrapper for [Slack](https://slack.com/) API
 
 ### Features
@@ -12,4 +12,4 @@ A [Delphi](https://www.embarcadero.com/products/delphi) wrapper for [Slack](http
 
 ### Disclaimers
 * The Delphi stylized helmet icon is trademark of Embarcadero Technologies.
-* SlackDriver is not created by, affiliated with, or supported by Slack Technologies, Inc.
+* SDriver is not created by, affiliated with, or supported by Slack Technologies, Inc.
