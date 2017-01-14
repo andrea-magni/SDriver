@@ -1,4 +1,4 @@
-![SDriver logo](https://www.andreamagni.eu/images/sdriver.png)
+![SDriver logo](https://www.andreamagni.eu/images/SDriver.png)
 # SDriver
 A [Delphi](https://www.embarcadero.com/products/delphi) wrapper for [Slack](https://slack.com/) API
 
