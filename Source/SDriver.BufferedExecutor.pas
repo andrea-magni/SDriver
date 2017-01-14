@@ -1,14 +1,14 @@
 (*
   Copyright 2016, Andrea Magni
-  https://github.com/andrea-magni/SlackDriver
+  https://github.com/andrea-magni/SDriver
 *)
-unit SlackDriver.BufferedExecutor;
+unit SDriver.BufferedExecutor;
 
 interface
 
 uses
   Classes, SysUtils, System.Generics.Collections
-, SlackDriver.Interfaces, SlackDriver.Executor
+, SDriver.Interfaces, SDriver.Executor
 ;
 
 type

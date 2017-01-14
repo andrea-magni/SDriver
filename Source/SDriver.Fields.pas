@@ -1,27 +1,27 @@
 (*
   Copyright 2016, Andrea Magni
-  https://github.com/andrea-magni/SlackDriver
+  https://github.com/andrea-magni/SDriver
 *)
-unit SlackDriver.Fields;
+unit SDriver.Fields;
 
 interface
 
 uses
   Classes, SysUtils, System.JSON
-, SlackDriver.Interfaces
+, SDriver.Interfaces
 ;
 
 type
   TFields = class(TInterfacedObject, IFields)
   private
-    FShort: string;
+    FShort: Boolean;
     FTitle: string;
     FValue: string;
   public
-    function GetShort: string;
+    function GetShort: Boolean;
     function GetTitle: string;
     function GetValue: string;
-    procedure SetShort(const AShort: string);
+    procedure SetShort(const AShort: Boolean);
     procedure SetTitle(const ATitle: string);
     procedure SetValue(const AValue: string);
 
@@ -38,7 +38,7 @@ begin
   inherited Create;
 end;
 
-function TFields.GetShort: string;
+function TFields.GetShort: Boolean;
 begin
   Result := FShort;
 end;
@@ -53,7 +53,7 @@ begin
   Result := FValue;
 end;
 
-procedure TFields.SetShort(const AShort: string);
+procedure TFields.SetShort(const AShort: Boolean);
 begin
   FShort := AShort;
 end;
@@ -72,7 +72,7 @@ function TFields.ToJSON: TJSONObject;
 begin
   Result := TJSONObject.Create;
   try
-    Result.AddPair('short', FShort);
+    Result.AddPair('short', TJSONBool.Create(FShort));
     Result.AddPair('title', FTitle);
     Result.AddPair('value', FValue);
   except

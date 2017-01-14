@@ -1,7 +1,7 @@
 object Form1: TForm1
   Left = 0
   Top = 0
-  Caption = 'SlackDriver Incoming WebHook Demo'
+  Caption = 'SDriver Incoming WebHook Demo'
   ClientHeight = 220
   ClientWidth = 734
   Color = clBtnFace

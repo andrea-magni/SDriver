@@ -1,8 +1,8 @@
 (*
   Copyright 2016, Andrea Magni
-  https://github.com/andrea-magni/SlackDriver
+  https://github.com/andrea-magni/SDriver
 *)
-unit SlackDriver.Utils;
+unit SDriver.Utils;
 
 interface
 

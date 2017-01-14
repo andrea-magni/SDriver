@@ -1,8 +1,8 @@
 (*
   Copyright 2016, Andrea Magni
-  https://github.com/andrea-magni/SlackDriver
+  https://github.com/andrea-magni/SDriver
 *)
-unit SlackDriver.Executor;
+unit SDriver.Executor;
 
 interface
 
@@ -10,7 +10,7 @@ uses
   Classes, SysUtils
 , System.Threading
 , System.Net.URLClient, System.Net.HttpClient, System.Net.HttpClientComponent
-, SlackDriver.Interfaces
+, SDriver.Interfaces
 ;
 
 type

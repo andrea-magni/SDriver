@@ -3,10 +3,10 @@
         <ProjectGuid>{3EC60401-F13D-48B5-BF77-FA68C457FE0A}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="Packages\10.1 Berlin\SlackDriver.Core.dproj">
+        <Projects Include="Packages\10.1 Berlin\SDriver.Core.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Packages\10.1 Berlin\SlackDriver.Components.dproj">
+        <Projects Include="Packages\10.1 Berlin\SDriver.Components.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Demos\IncomingWebHook\IncomingWebHook.dproj">
@@ -20,23 +20,23 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="SlackDriver_Core">
-        <MSBuild Projects="Packages\10.1 Berlin\SlackDriver.Core.dproj"/>
+    <Target Name="SDriver_Core">
+        <MSBuild Projects="Packages\10.1 Berlin\SDriver.Core.dproj"/>
     </Target>
-    <Target Name="SlackDriver_Core:Clean">
-        <MSBuild Projects="Packages\10.1 Berlin\SlackDriver.Core.dproj" Targets="Clean"/>
+    <Target Name="SDriver_Core:Clean">
+        <MSBuild Projects="Packages\10.1 Berlin\SDriver.Core.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="SlackDriver_Core:Make">
-        <MSBuild Projects="Packages\10.1 Berlin\SlackDriver.Core.dproj" Targets="Make"/>
+    <Target Name="SDriver_Core:Make">
+        <MSBuild Projects="Packages\10.1 Berlin\SDriver.Core.dproj" Targets="Make"/>
     </Target>
-    <Target Name="SlackDriver_Components">
-        <MSBuild Projects="Packages\10.1 Berlin\SlackDriver.Components.dproj"/>
+    <Target Name="SDriver_Components">
+        <MSBuild Projects="Packages\10.1 Berlin\SDriver.Components.dproj"/>
     </Target>
-    <Target Name="SlackDriver_Components:Clean">
-        <MSBuild Projects="Packages\10.1 Berlin\SlackDriver.Components.dproj" Targets="Clean"/>
+    <Target Name="SDriver_Components:Clean">
+        <MSBuild Projects="Packages\10.1 Berlin\SDriver.Components.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="SlackDriver_Components:Make">
-        <MSBuild Projects="Packages\10.1 Berlin\SlackDriver.Components.dproj" Targets="Make"/>
+    <Target Name="SDriver_Components:Make">
+        <MSBuild Projects="Packages\10.1 Berlin\SDriver.Components.dproj" Targets="Make"/>
     </Target>
     <Target Name="IncomingWebHook">
         <MSBuild Projects="Demos\IncomingWebHook\IncomingWebHook.dproj"/>
@@ -48,13 +48,13 @@
         <MSBuild Projects="Demos\IncomingWebHook\IncomingWebHook.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="SlackDriver_Core;SlackDriver_Components;IncomingWebHook"/>
+        <CallTarget Targets="SDriver_Core;SDriver_Components;IncomingWebHook"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="SlackDriver_Core:Clean;SlackDriver_Components:Clean;IncomingWebHook:Clean"/>
+        <CallTarget Targets="SDriver_Core:Clean;SDriver_Components:Clean;IncomingWebHook:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="SlackDriver_Core:Make;SlackDriver_Components:Make;IncomingWebHook:Make"/>
+        <CallTarget Targets="SDriver_Core:Make;SDriver_Components:Make;IncomingWebHook:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

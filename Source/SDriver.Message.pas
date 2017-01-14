@@ -1,14 +1,14 @@
 (*
   Copyright 2016, Andrea Magni
-  https://github.com/andrea-magni/SlackDriver
+  https://github.com/andrea-magni/SDriver
 *)
-unit SlackDriver.Message;
+unit SDriver.Message;
 
 interface
 
 uses
   System.JSON
-, SlackDriver.Interfaces, SlackDriver.Attachment
+, SDriver.Interfaces, SDriver.Attachment
 ;
 
 type

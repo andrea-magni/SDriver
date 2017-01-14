@@ -1,14 +1,14 @@
 (*
   Copyright 2016, Andrea Magni
-  https://github.com/andrea-magni/SlackDriver
+  https://github.com/andrea-magni/SDriver
 *)
-unit SlackDriver.Attachment;
+unit SDriver.Attachment;
 
 interface
 
 uses
   Classes, SysUtils, System.JSON
-, SlackDriver.Interfaces, SlackDriver.Fields
+, SDriver.Interfaces, SDriver.Fields
 ;
 
 type
@@ -17,7 +17,7 @@ type
     FColor: string;
     FFallback: string;
     FPretext: string;
-    FFields: IFields;
+    FFields: TArray<IFields>;
   public
     function GetColor: string;
     function GetFallback: string;
@@ -25,7 +25,8 @@ type
     procedure SetColor(const AColor: string);
     procedure SetFallback(const AFallback: string);
     procedure SetPretext(const APretext: string);
-    function GetFields: IFields;
+    function GetFields: TArray<IFields>;
+    function AddFields: IFields;
 
     function ToJSON: TJSONObject;
     constructor Create; virtual;
@@ -35,10 +36,16 @@ implementation
 
 { TAttachment }
 
+function TAttachment.AddFields: IFields;
+begin
+  Result := TFields.Create;
+  FFields := FFields + [Result];
+end;
+
 constructor TAttachment.Create;
 begin
   inherited Create;
-  FFields := TFields.Create;
+  FFields := [];
 end;
 
 function TAttachment.GetColor: string;
@@ -51,7 +58,7 @@ begin
   Result := FFallback;
 end;
 
-function TAttachment.GetFields: IFields;
+function TAttachment.GetFields: TArray<IFields>;
 begin
   Result := FFields;
 end;
@@ -79,16 +86,19 @@ end;
 function TAttachment.ToJSON: TJSONObject;
 var
   LFields: TJSONArray;
+  LField: IFields;
 begin
   Result := TJSONObject.Create;
   Result.AddPair('color', FColor);
   Result.AddPair('pretext', FPretext);
   Result.AddPair('fallback', FFallback);
-  if not (FFields.Title.IsEmpty and FFields.Value.IsEmpty and FFields.Short.IsEmpty) then
+
+  if Length(FFields) > 0 then
   begin
     LFields := TJSONArray.Create;
     try
-      LFields.Add(FFields.ToJSON);
+      for LField in FFields do
+        LFields.Add(LField.ToJSON);
       Result.AddPair('fields', LFields)
     except
       LFields.Free;

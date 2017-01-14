@@ -1,8 +1,8 @@
 (*
   Copyright 2016, Andrea Magni
-  https://github.com/andrea-magni/SlackDriver
+  https://github.com/andrea-magni/SDriver
 *)
-unit SlackDriver.Interfaces;
+unit SDriver.Interfaces;
 
 interface
 
@@ -14,16 +14,16 @@ type
   IFields = interface ['{24B67E58-373C-4783-A3C5-AF56456041AA}']
     function GetTitle: string;
     function GetValue: string;
-    function GetShort: string;
+    function GetShort: Boolean;
     procedure SetTitle(const ATitle: string);
     procedure SetValue(const AValue: string);
-    procedure SetShort(const AShort: string);
+    procedure SetShort(const AShort: Boolean);
 
     function ToJSON: TJSONObject;
 
     property Title: string read GetTitle write SetTitle;
     property Value: string read GetValue write SetValue;
-    property Short: string read GetShort write SetShort;
+    property Short: Boolean read GetShort write SetShort;
   end;
 
   IAttachment = interface ['{6C976A99-90F1-4A23-8936-A0E50B5F64B9}']
@@ -33,12 +33,13 @@ type
     procedure SetFallback(const AFallback: string);
     procedure SetPretext(const APretext: string);
     procedure SetColor(const AColor: string);
-    function GetFields: IFields;
+    function GetFields: TArray<IFields>;
+    function AddFields: IFields;
 
     property Fallback: string read GetFallback write SetFallback;
     property Pretext: string read GetPretext write SetPretext;
     property Color: string read GetColor write SetColor;
-    property Fields: IFields read GetFields;
+    property Fields: TArray<IFields> read GetFields;
 
     function ToJSON: TJSONObject;
   end;
