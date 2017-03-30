@@ -1,0 +1,50 @@
+(*
+  Copyright 2016, Andrea Magni
+  https://github.com/andrea-magni/SDriver
+*)
+package SDriver.Core;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$DESCRIPTION 'SDriver Core'}
+{$LIBSUFFIX '250'}
+{$RUNONLY}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl;
+
+contains
+  SDriver.Message in '..\..\Source\SDriver.Message.pas',
+  SDriver.Interfaces in '..\..\Source\SDriver.Interfaces.pas',
+  SDriver.Executor in '..\..\Source\SDriver.Executor.pas',
+  SDriver.Utils in '..\..\Source\SDriver.Utils.pas',
+  SDriver.BufferedExecutor in '..\..\Source\SDriver.BufferedExecutor.pas',
+  SDriver.IncomingWebHook in '..\..\Source\SDriver.IncomingWebHook.pas',
+  SDriver.Attachment in '..\..\Source\SDriver.Attachment.pas',
+  SDriver.Fields in '..\..\Source\SDriver.Fields.pas';
+
+end.

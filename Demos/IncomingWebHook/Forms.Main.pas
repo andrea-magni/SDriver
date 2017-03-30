@@ -45,7 +45,7 @@ implementation
 
 uses
   System.Diagnostics
-, SlackDriver.Message, SlackDriver.Interfaces, SlackDriver.IncomingWebHook
+, SDriver.Message, SDriver.Interfaces, SDriver.IncomingWebHook
 ;
 
 procedure TForm1.SendActionExecute(Sender: TObject);
