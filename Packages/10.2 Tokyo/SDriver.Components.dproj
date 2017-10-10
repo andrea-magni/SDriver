@@ -85,7 +85,7 @@
         <GenDll>true</GenDll>
         <DCC_N>false</DCC_N>
         <VerInfo_Locale>1040</VerInfo_Locale>
-        <DllSuffix>240</DllSuffix>
+        <DllSuffix>250</DllSuffix>
         <GenPackage>true</GenPackage>
         <DCC_ImageBase>00400000</DCC_ImageBase>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>

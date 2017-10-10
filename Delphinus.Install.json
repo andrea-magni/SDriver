@@ -1,0 +1,43 @@
+{
+  "search_pathes": [{
+    "pathes": "Source",
+    "platforms": "Win32;iOSDevice64"
+  }],
+  "browsing_pathes": [{
+    "pathes": "Source",
+    "platforms": "Win32;iOSDevice64"
+  }],
+  "source_folders": [{
+    "folder": "."
+  },
+  {
+    "folder": "Demos",
+    "recursive": true
+  },
+  {
+    "folder": "Packages",
+    "recursive": true
+  },
+  {
+    "folder": "Source",
+    "recursive": true
+  }],
+  "projects":[
+    {
+      "project":"Packages\\10.1 Berlin\\SDriver.Core.dproj",
+      "compiler":31
+    },
+    {
+      "project":"Packages\\10.1 Berlin\\SDriver.Components.dproj",
+      "compiler":31
+    },
+    {
+      "project":"Packages\\10.2 Tokyo\\SDriver.Core.dproj",
+      "compiler":32
+    },
+    {
+      "project":"Packages\\10.2 Tokyo\\SDriver.Components.dproj",
+      "compiler":32
+    }
+  ]
+}

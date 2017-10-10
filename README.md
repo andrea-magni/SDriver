@@ -10,6 +10,9 @@ A [Delphi](https://www.embarcadero.com/products/delphi) wrapper for [Slack](http
 * Implemented using Delphi System.Net.HttpClient (native http client libraries for each supported platform)
 * Async implementation using System.Threading (Parallel Programming Library)
 
+### Miscellaneous
+You can install [Delphinus package manager](https://github.com/Memnarch/Delphinus/wiki/Installing-Delphinus) and then install SDriver package there. (Delphinus-Support)
+
 ### Disclaimers
 * The Delphi stylized helmet icon is trademark of Embarcadero Technologies.
 * SDriver is not created by, affiliated with, or supported by Slack Technologies, Inc.
