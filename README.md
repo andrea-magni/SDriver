@@ -10,6 +10,11 @@ A [Delphi](https://www.embarcadero.com/products/delphi) wrapper for [Slack](http
 * Implemented using Delphi System.Net.HttpClient (native http client libraries for each supported platform)
 * Async implementation using System.Threading (Parallel Programming Library)
 
+# Related Links
+Embarcadero Delphi is a modern, powerful and effective language and development tool. Learn more about it at the following links:
+ * https://www.embarcadero.com/
+ * https://learndelphi.org/
+
 ### Disclaimers
 * The Delphi stylized helmet icon is trademark of Embarcadero Technologies.
 * SDriver is not created by, affiliated with, or supported by Slack Technologies, Inc.
