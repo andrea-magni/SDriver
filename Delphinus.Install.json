@@ -38,6 +38,14 @@
     {
       "project":"Packages\\10.2 Tokyo\\SDriver.Components.dproj",
       "compiler":32
+    },
+    {
+      "project":"Packages\\11 Alexandria\\SDriver.Core.dproj",
+      "compiler":35
+    },
+    {
+      "project":"Packages\\11 Alexandria\\SDriver.Components.dproj",
+      "compiler":35
     }
   ]
 }
