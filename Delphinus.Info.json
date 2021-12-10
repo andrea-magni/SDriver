@@ -1,0 +1,11 @@
+{
+  "id": "{3EC60401-F13D-48B5-BF77-FA68C457FE0A}",
+  "name": "SDriver",
+  "license_type": "Mozilla Public License Version 2.0",
+  "license_file": "LICENSE",
+  "platforms": "Win32;iOSDevice64",
+  "package_compiler_min": 31,
+  "package_compiler_max": 32,
+  "compiler_min": 31,
+  "compiler_max": 32
+}
