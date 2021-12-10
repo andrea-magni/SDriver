@@ -122,7 +122,8 @@ begin
     Result.AddPair('text', TJSONString.Create(FText));
     Result.AddPair('username', TJSONString.Create(FUserName));
     Result.AddPair('icon_url', TJSONString.Create(FIcon_URL));
-    Result.AddPair('icon_emoji', TJSONString.Create(FIcon_Emoji));
+    if FIcon_Emoji <> '' then
+      Result.AddPair('icon_emoji', TJSONString.Create(FIcon_Emoji));
     Result.AddPair('channel', TJSONString.Create(FChannel));
     if Length(FAttachments) > 0 then
     begin
