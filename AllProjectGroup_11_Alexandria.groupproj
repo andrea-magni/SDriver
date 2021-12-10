@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{3EC60401-F13D-48B5-BF77-FA68C457FE0A}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Packages\11 Alexandria\SDriver.Core.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Packages\11 Alexandria\SDriver.Components.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Demos\IncomingWebHook\IncomingWebHook.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="SDriver_Core">
+        <MSBuild Projects="Packages\11 Alexandria\SDriver.Core.dproj"/>
+    </Target>
+    <Target Name="SDriver_Core:Clean">
+        <MSBuild Projects="Packages\11 Alexandria\SDriver.Core.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SDriver_Core:Make">
+        <MSBuild Projects="Packages\11 Alexandria\SDriver.Core.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SDriver_Components">
+        <MSBuild Projects="Packages\11 Alexandria\SDriver.Components.dproj"/>
+    </Target>
+    <Target Name="SDriver_Components:Clean">
+        <MSBuild Projects="Packages\11 Alexandria\SDriver.Components.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SDriver_Components:Make">
+        <MSBuild Projects="Packages\11 Alexandria\SDriver.Components.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="IncomingWebHook">
+        <MSBuild Projects="Demos\IncomingWebHook\IncomingWebHook.dproj"/>
+    </Target>
+    <Target Name="IncomingWebHook:Clean">
+        <MSBuild Projects="Demos\IncomingWebHook\IncomingWebHook.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="IncomingWebHook:Make">
+        <MSBuild Projects="Demos\IncomingWebHook\IncomingWebHook.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="SDriver_Core;SDriver_Components;IncomingWebHook"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="SDriver_Core:Clean;SDriver_Components:Clean;IncomingWebHook:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="SDriver_Core:Make;SDriver_Components:Make;IncomingWebHook:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
